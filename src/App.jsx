@@ -19,8 +19,23 @@ function App() {
     //setAuth(true)
   //}, 3000);
   const [data, setData] = useState(db)
- 
+  const [cart, setCart] = useState([])
+   
+  function addToCart(item){ 
+  const itemExists = cart.findIndex(guitar => guitar.id === item.id)
 
+   if(itemExists >= 0){ //existe
+      const updatedCart = [...cart]
+      updatedCart[itemExists].quantity++
+      setCart(updatedCart)
+   }else{ 
+    item.quantity = 1
+    setCart( [...cart, item])
+  }
+   }
+    
+    
+  
 
   return (
     <>
@@ -35,6 +50,8 @@ function App() {
                 //auth={true}
                 key = {guitar.id}
                 guitar = {guitar}
+                setCart={setCart}
+                addToCart={addToCart}
               />
           ))}
           
