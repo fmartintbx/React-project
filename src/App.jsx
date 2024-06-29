@@ -20,7 +20,8 @@ function App() {
   //}, 3000);
   const [data, setData] = useState(db)
  
-  console.log(db)
+
+
   return (
     <>
     < Header />
@@ -28,17 +29,15 @@ function App() {
         <h2 className="text-center">Nuestra Colección</h2>
 
         <div className="row mt-5">
-           
-           < Guitar />
-           < Guitar />
-           < Guitar />
-           < Guitar />
-           < Guitar />
-           < Guitar />
-           < Guitar />
-           < Guitar />
-           < Guitar />
-
+           {data.map((guitar) => ( 
+              < Guitar 
+                //price={100} 
+                //auth={true}
+                key = {guitar.id}
+                guitar = {guitar}
+              />
+          ))}
+          
         </div>
     </main>
 
