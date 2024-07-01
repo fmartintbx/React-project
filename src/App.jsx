@@ -34,13 +34,16 @@ function App() {
   }
    }
     
-    
+    function removeFromCart(id){ 
+      console.log('Eliminando...', id)
+    }
   
 
   return (
     <>
     < Header 
      cart={cart}
+     removeFromCart={removeFromCart}
 
     />
     <main className="container-xl mt-5">
