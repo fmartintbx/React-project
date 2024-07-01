@@ -35,7 +35,7 @@ function App() {
    }
     
     function removeFromCart(id){ 
-      console.log('Eliminando...', id)
+    setCart(prevCart => prevCart.filter(guitar => guitar.id !== id))
     }
   
 
