@@ -37,14 +37,16 @@ function App() {
     function removeFromCart(id){ 
     setCart(prevCart => prevCart.filter(guitar => guitar.id !== id))
     }
-  
+   function increaseQuantity(id){ 
+    console.log('Incrementando ', id)
+   }
 
   return (
     <>
     < Header 
      cart={cart}
      removeFromCart={removeFromCart}
-
+     increaseQuantity={increaseQuantity}
     />
     <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
