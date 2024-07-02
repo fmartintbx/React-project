@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react"
 import Header from "./components/Header"
 import { Guitar } from "./components/Guitar"
@@ -23,6 +24,10 @@ function App() {
   
   const MIN_ITEMS = 1
   const MAX_ITEMS = 5
+
+  useEffect(() => { 
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
    
   function addToCart(item){ 
   const itemExists = cart.findIndex(guitar => guitar.id === item.id)
@@ -35,6 +40,7 @@ function App() {
     item.quantity = 1
     setCart( [...cart, item])
   }
+  //saveLocalStorage()
    }
     
     function removeFromCart(id){ 
@@ -69,6 +75,9 @@ function App() {
     setCart([])
 
    }
+   //function saveLocalStorage(){ //Usar usseEfect
+    //localStorage.setItem('cart', JSON.stringify)
+   //}
 
   return (
     <>
