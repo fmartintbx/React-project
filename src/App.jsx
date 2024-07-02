@@ -39,6 +39,10 @@ function App() {
     function removeFromCart(id){ 
     setCart(prevCart => prevCart.filter(guitar => guitar.id !== id))
     }
+   function decreaseQuantity(id){ 
+    console.log('Decrementando la cantidad', id)
+   }
+
    function increaseQuantity(id){ 
     const updatedCart = cart.map(item => { 
       if(item.id === id && item.quantity < MAX_ITEMS){ 
@@ -57,6 +61,7 @@ function App() {
     < Header 
      cart={cart}
      removeFromCart={removeFromCart}
+     decreaseQuantity={decreaseQuantity}
      increaseQuantity={increaseQuantity}
     />
     <main className="container-xl mt-5">
